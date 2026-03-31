@@ -1,45 +1,48 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useReducer } from "react"
+import { cartReducer } from "../reducer/cartReducer";
+
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
 
-    const subFromCart = (product) => {
-        setCartItems(prev => {
-            const existing = prev.find(item => item.id === product.id);
-            if (existing) {
-                return prev.map(item =>
-                    item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
-                );
-            }
-            return [...prev, { ...product, quantity: 1 }];
-        });
-    };
+    const [cartItems, dispatch] = useReducer(cartReducer, []);
 
     const addToCart = (product) => {
-        setCartItems(prev => {
-            const existing = prev.find(item => item.id === product.id);
-            if (existing) {
-                return prev.map(item =>
-                    item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-                );
-            }
-            return [...prev, { ...product, quantity: 1 }];
-        });
-    };
+        dispatch({
+            type: "ADD_TO_CART",
+            product: product
+        })
+    }
+
+    const reduceFromCart = (product) => {
+        dispatch({
+            type: "REDUCE_FROM_CART",
+            product: product
+        })
+    }
 
     const removeFromCart = (id) => {
-        setCartItems(prev => prev.filter(item => item.id !== id));
-    };
+        dispatch({
+            type: "DELETE_FROM_CART",
+            id: id
+        })
+    }
 
-    const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const value = {
+        cartItems: cartItems,
+        cartCount: cartItems.reduce((count, item) => count + item.quantity, 0),
+        addToCart,
+        reduceFromCart,
+        removeFromCart
+    }
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, subFromCart, removeFromCart, cartCount }}>
+        <CartContext.Provider value={value}>
             {children}
         </CartContext.Provider>
     );
-};
+
+}

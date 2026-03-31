@@ -13,13 +13,9 @@ import { CartProvider } from './context/CartContext';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <CartProvider>
-          <Header />
-          <AllRoutes />
-        </CartProvider>
-        <Footer />
-      </BrowserRouter>
+      <Header />
+      <AllRoutes />
+      <Footer />
     </div>
   );
 }
