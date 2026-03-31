@@ -1,0 +1,94 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Wireless Mouse",
+            "price": 29.99,
+            "category": "Electronics",
+            "image": "/assets/mouse.jpg",
+            "rating": 4,
+            "in_stock": true,
+            "description": "Ergonomic wireless mouse with USB receiver"
+        },
+        {
+            "id": 2,
+            "name": "Bluetooth Headphones",
+            "price": 59.99,
+            "category": "Electronics",
+            "image": "/assets/headphones.jpg",
+            "rating": 5,
+            "in_stock": true,
+            "description": "Noise-cancelling over-ear headphones"
+        },
+        {
+            "id": 3,
+            "name": "Cotton T-Shirt",
+            "price": 19.99,
+            "category": "Clothing",
+            "image": "/assets/tshirt.jpg",
+            "rating": 3,
+            "in_stock": true,
+            "description": "100% cotton crew neck t-shirt"
+        },
+        {
+            "id": 4,
+            "name": "Running Shoes",
+            "price": 89.99,
+            "category": "Footwear",
+            "image": "/assets/shoes.jpg",
+            "rating": 4,
+            "in_stock": false,
+            "description": "Lightweight running shoes with cushioned sole"
+        },
+        {
+            "id": 5,
+            "name": "Backpack",
+            "price": 49.99,
+            "category": "Accessories",
+            "image": "/assets/backpack.jpg",
+            "rating": 4,
+            "in_stock": true,
+            "description": "Water-resistant laptop backpack"
+        }
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "name": "Test 1",
+            "email": "test@snb.com",
+            "phone": "071232112",
+            "address": "Bristol"
+        },
+        {
+            "id": 2,
+            "name": "Test 2",
+            "email": "test2@snb.com",
+            "phone": "071232112",
+            "address": "Bristol"
+        },
+{
+            "id": 3,
+            "name": "Test 3",
+            "email": "test3@snb.com",
+            "phone": "071232112",
+            "address": "Bristol"
+        }
+    ],
+    "login": [
+        {
+            "id": 1,
+            "username": "test1",
+            "password": "test1"
+        },
+        {
+            "id": 2,
+            "username": "test2",
+            "password": "test2"
+        },
+        {
+            "id": 3,
+            "username": "test3",
+            "password": "test3"
+        }
+    ]
+}
